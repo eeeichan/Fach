@@ -1,0 +1,77 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nickname %>
+    <%= form.text_field :nickname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :age %>
+    <%= form.number_field :age %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tel %>
+    <%= form.text_field :tel %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :post %>
+    <%= form.text_field :post %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address1 %>
+    <%= form.number_field :address1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address2 %>
+    <%= form.number_field :address2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address3 %>
+    <%= form.text_field :address3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :private_user_id %>
+    <%= form.number_field :private_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :post_id %>
+    <%= form.number_field :post_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :profile_id %>
+    <%= form.number_field :profile_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :photo_id %>
+    <%= form.number_field :photo_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
