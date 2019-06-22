@@ -41,6 +41,20 @@ class LoginMenu extends React.Component {
     this.setState({modalIsOpen: false});
   }
 
+  handleChange() {
+    const ok_button = document.getElementById('login_button_id');
+    const ok_button_parts = document.getElementById('login_parts_id');
+    ok_button.disabled = false;
+    ok_button.classList.add('login_button');
+    ok_button.classList.remove('login_button_disabled');
+    ok_button_parts.classList.add('login_parts');
+    ok_button_parts.classList.remove('login_parts_disabled');
+  }
+
+  handleOnClick() {
+    alert(e);
+  }
+
   render () {
     return (
       <React.Fragment>
@@ -57,12 +71,15 @@ class LoginMenu extends React.Component {
           contentLabel="Example Modal"
         >
           <h5 ref={subtitle => this.subtitle = subtitle} class='modal_title'>携帯電話番号を入力</h5>
+          <p>{this.state.textValue}</p>
           <form>
             <div class='modal_tel'>
               <span>+81</span>
-              <input type='tel' size='11' maxlength='11' class='modal_tel_input'></input>
+              <input type='tel' size='11' maxlength='11' class='modal_tel_input' onChange={this.handleChange}></input>
             </div>
-            <div class='login_parts_disabled'><button type='submit' class='login_button_disabled' disabled>続ける</button></div>
+            <div id='login_parts_id' class='login_parts_disabled'>
+              <button type='submit' id='login_button_id' class='login_button_disabled' onClick={this.handleOnClick} disabled>続ける</button>
+            </div>
           </form>
           
         </Modal>
@@ -71,6 +88,7 @@ class LoginMenu extends React.Component {
     );
   }
 }
+
 
 const click =(e)=> {
   // e.preventDefault();
