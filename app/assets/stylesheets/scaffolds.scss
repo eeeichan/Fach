@@ -15,10 +15,19 @@ body {
   background-color: rgba(51,51,51,.5);
   .header_login_menu {
     position: relative;
+    // width: 6.3333333333%;
     img {
       position: absolute;
       bottom: 5px;
       left: 3px;
+    }
+  }
+  .header_humberger_menu {
+    position: relative;
+    img {
+      bottom: 8px;
+      position: absolute;
+      left: 7.5px;
     }
   }
 }
@@ -99,31 +108,31 @@ label {
   display: block;
 }
 
-// humberger menu
-#humberger {
-  position: relative;
-  top: 4px;
-  height: 24px;
-  width: 24px;
-  display: inline-block;
-  box-sizing: border-box;
-}
-#humberger div {
-  position: absolute;
-  left: 2px;
-  height: 3px;
-  width: 20px;
-  background-color: whitesmoke;
-  border-radius: 2px;
-  display: inline-block;
-  box-sizing: border-box;
-}
-#humberger div:nth-of-type(1) {
-  top: 2px;
-}
-#humberger div:nth-of-type(2) {
-  top: 10px;
-}
-#humberger div:nth-of-type(3) {
-  bottom: 3px;
-}
+// // humberger menu
+// #humberger {
+//   position: relative;
+//   top: 4px;
+//   height: 24px;
+//   width: 24px;
+//   display: inline-block;
+//   box-sizing: border-box;
+// }
+// #humberger div {
+//   position: absolute;
+//   left: 2px;
+//   height: 3px;
+//   width: 20px;
+//   background-color: rgb(51,51,51);
+//   border-radius: 2px;
+//   display: inline-block;
+//   box-sizing: border-box;
+// }
+// #humberger div:nth-of-type(1) {
+//   top: 2px;
+// }
+// #humberger div:nth-of-type(2) {
+//   top: 10px;
+// }
+// #humberger div:nth-of-type(3) {
+//   bottom: 3px;
+// }
