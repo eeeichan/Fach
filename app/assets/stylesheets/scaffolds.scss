@@ -136,3 +136,40 @@ label {
 // #humberger div:nth-of-type(3) {
 //   bottom: 3px;
 // }
+
+.login_parts_disabled {
+  text-align: center;
+  .login_button_disabled {
+    width: 250px;
+    height: 50px;
+    font-size: 20px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 30px 30px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #e0e0e0 ;
+    transition: .4s;
+  }
+}
+
+.modal_title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.modal_tel {
+  color: #000;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-bottom: 30px;
+  span {
+    font-size: 25px;
+    margin-right: 10px;
+  }
+  input.modal_tel_input {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 25px !important;
+    width: 200px !important;
+  }
+}

@@ -10,7 +10,7 @@ const customStyles = {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    transform             : 'translate(-50%, -50%)',
   }
 };
 
@@ -34,7 +34,7 @@ class LoginMenu extends React.Component {
 
   afterOpenModal() {
     // references are now sync'd and can be accessed.
-    this.subtitle.style.color = '#f10';
+    this.subtitle.style.color = '#616161';
   }
 
   closeModal() {
@@ -56,8 +56,15 @@ class LoginMenu extends React.Component {
           style={customStyles}
           contentLabel="Example Modal"
         >
-          <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
-          <button onClick={this.closeModal}>close</button>
+          <h5 ref={subtitle => this.subtitle = subtitle} class='modal_title'>携帯電話番号を入力</h5>
+          <form>
+            <div class='modal_tel'>
+              <span>+81</span>
+              <input type='tel' size='11' maxlength='11' class='modal_tel_input'></input>
+            </div>
+            <div class='login_parts_disabled'><button type='submit' class='login_button_disabled' disabled>続ける</button></div>
+          </form>
+          
         </Modal>
         </div>
       </React.Fragment>
