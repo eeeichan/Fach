@@ -5,6 +5,22 @@ body {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  background: linear-gradient(-135deg, #E4A972, #9941D8) fixed;
+}
+
+//Header margin top none...
+#header .card-panel {
+  margin: 0;
+  padding-bottom: 5px;
+  background-color: rgba(51,51,51,.5);
+  .header_login_menu {
+    position: relative;
+    img {
+      position: absolute;
+      bottom: 5px;
+      left: 3px;
+    }
+  }
 }
 
 p, ol, ul, td {
@@ -81,4 +97,33 @@ div {
 
 label {
   display: block;
+}
+
+// humberger menu
+#humberger {
+  position: relative;
+  top: 4px;
+  height: 24px;
+  width: 24px;
+  display: inline-block;
+  box-sizing: border-box;
+}
+#humberger div {
+  position: absolute;
+  left: 2px;
+  height: 3px;
+  width: 20px;
+  background-color: whitesmoke;
+  border-radius: 2px;
+  display: inline-block;
+  box-sizing: border-box;
+}
+#humberger div:nth-of-type(1) {
+  top: 2px;
+}
+#humberger div:nth-of-type(2) {
+  top: 10px;
+}
+#humberger div:nth-of-type(3) {
+  bottom: 3px;
 }
