@@ -74,7 +74,7 @@ class LoginMenu extends React.Component {
               <input name='tel' type='tel' size='11' maxlength='11' class='modal_tel_input' onChange={this.handleChange}></input>
             </div>
             <div id='login_parts_id' class='login_parts_disabled'>
-              <button type='submit' id='login_button_id' class='login_button_disabled' onClick={this.click} disabled>続ける</button>
+              <button type='submit' id='login_button_id' class='login_button_disabled' disabled>続ける</button>
             </div>
           </form>
           
@@ -85,12 +85,5 @@ class LoginMenu extends React.Component {
   }
 }
 
-
-const click =(e)=> {
-  // e.preventDefault();
-  // console.log(e);
-  console.log([e]);
-  alert('React Test!!');
-}
 //ReactDOM.render(<LoginMenu />, appElement);
 export default LoginMenu;
