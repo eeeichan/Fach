@@ -10,6 +10,21 @@
   </head>
 
   <body>
+    <div id='header'>
+      <div class="card-panel heder_nav">
+        <div class='row'>
+          <div class='header_log col s1' >
+            <%= image_tag("/fach-logo-43.png", :size => "100x50", :alt => "アイコン") %>
+          </div>
+          <div class='col s10'></div>
+            <% unless @user %>
+              <%= javascript_pack_tag 'application' %>
+              <%= react_component("LoginMenu") %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+    <p><%= h(flash[:danger]) %></p>
     <%= yield %>
   </body>
 </html>

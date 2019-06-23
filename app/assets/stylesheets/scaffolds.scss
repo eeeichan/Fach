@@ -5,6 +5,31 @@ body {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  background: linear-gradient(-135deg, #E4A972, #9941D8) fixed;
+}
+
+//Header margin top none...
+#header .card-panel {
+  margin: 0;
+  padding-bottom: 5px;
+  background-color: rgba(51,51,51,.5);
+  .header_login_menu {
+    position: relative;
+    // width: 6.3333333333%;
+    img {
+      position: absolute;
+      bottom: 5px;
+      left: 3px;
+    }
+  }
+  .header_humberger_menu {
+    position: relative;
+    img {
+      bottom: 8px;
+      position: absolute;
+      left: 7.5px;
+    }
+  }
 }
 
 p, ol, ul, td {
@@ -81,4 +106,71 @@ div {
 
 label {
   display: block;
+}
+
+// // humberger menu
+// #humberger {
+//   position: relative;
+//   top: 4px;
+//   height: 24px;
+//   width: 24px;
+//   display: inline-block;
+//   box-sizing: border-box;
+// }
+// #humberger div {
+//   position: absolute;
+//   left: 2px;
+//   height: 3px;
+//   width: 20px;
+//   background-color: rgb(51,51,51);
+//   border-radius: 2px;
+//   display: inline-block;
+//   box-sizing: border-box;
+// }
+// #humberger div:nth-of-type(1) {
+//   top: 2px;
+// }
+// #humberger div:nth-of-type(2) {
+//   top: 10px;
+// }
+// #humberger div:nth-of-type(3) {
+//   bottom: 3px;
+// }
+
+.login_parts_disabled {
+  text-align: center;
+  .login_button_disabled {
+    width: 250px;
+    height: 50px;
+    font-size: 20px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 30px 30px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #e0e0e0 ;
+    transition: .4s;
+  }
+}
+
+.modal_title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.modal_tel {
+  text-align: center;
+  color: #000;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-bottom: 30px;
+  span {
+    font-size: 40px;
+    margin-right: 10px;
+  }
+  input.modal_tel_input {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 40px !important;
+    width: 300px !important;
+  }
 }

@@ -61,6 +61,32 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# include React
 gem 'react-rails'
 gem 'webpacker'
+
+# ENV file setting
 gem 'dotenv-rails'
+
+# UI setting
+gem 'materialize-sass'
+
+# schema viewer
+gem 'annotate'
+
+# pager
+gem 'kaminari'
+
+gem 'paperclip'
+
+# Error page setting
+group :development do
+  # エラー画面をわかりやすく整形してくれる
+  gem 'better_errors'
+
+  # better_errorsの画面上にirb/pry(PERL)を表示する
+  gem 'binding_of_caller'
+end
+
+# Debug
+gem 'pry-byebug', group: :development
