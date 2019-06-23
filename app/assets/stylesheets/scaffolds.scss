@@ -160,16 +160,17 @@ label {
 }
 
 .modal_tel {
+  text-align: center;
   color: #000;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   margin-bottom: 30px;
   span {
-    font-size: 25px;
+    font-size: 40px;
     margin-right: 10px;
   }
   input.modal_tel_input {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 25px !important;
-    width: 200px !important;
+    font-size: 40px !important;
+    width: 300px !important;
   }
 }

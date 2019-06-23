@@ -2,28 +2,24 @@
 
 one:
   nickname: MyString
-  age: 1
-  tel: 1
-  email: 1
-  post: 1
-  address1: 1
-  address2: 1
-  address3: MyString
+  birth: 2019-06-23 18:54:07
+  school: MyString
+  job: MyString
+  profile: MyString
+  iine: 1
   private_user_id: 1
-  post_id: 1
-  profile_id: 1
+  chat_space_id: 1
   photo_id: 1
+  face_id: 1
 
 two:
   nickname: MyString
-  age: 1
-  tel: 1
-  email: 1
-  post: 1
-  address1: 1
-  address2: 1
-  address3: MyString
+  birth: 2019-06-23 18:54:07
+  school: MyString
+  job: MyString
+  profile: MyString
+  iine: 1
   private_user_id: 1
-  post_id: 1
-  profile_id: 1
+  chat_space_id: 1
   photo_id: 1
+  face_id: 1

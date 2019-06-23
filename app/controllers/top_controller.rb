@@ -15,7 +15,8 @@ class TopController < ApplicationController
 
     def set_user
       # binding.pry
-      @user = User.find_by!(tel: session_params[:tel])
+      @private_user = PrivateUser.find_by!(tel: session_params[:tel])
+      @user = User.find_by!(private_user_id: @private_user.id)
     rescue
       flash[:danger] = "ログインに失敗しました"
       #redirect_to action: 'index'

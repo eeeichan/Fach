@@ -10,21 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_20_150511) do
+ActiveRecord::Schema.define(version: 2019_06_23_100909) do
+
+  create_table "chat_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "post_to_user"
+    t.string "post_content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "chat_spaces", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "from_user_id"
+    t.integer "to_user_id"
+    t.integer "chat_room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "private_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "tel"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname"
-    t.integer "age"
-    t.string "tel"
-    t.string "email"
-    t.integer "post"
-    t.integer "address1"
-    t.integer "address2"
-    t.string "address3"
+    t.datetime "birth"
+    t.string "school"
+    t.string "job"
+    t.string "profile"
+    t.integer "iine"
     t.integer "private_user_id"
-    t.integer "post_id"
-    t.integer "profile_id"
+    t.integer "chat_space_id"
     t.integer "photo_id"
+    t.integer "face_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
