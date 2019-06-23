@@ -55,7 +55,7 @@ class LoginMenu extends React.Component {
   render () {
     return (
       <React.Fragment>
-        <div class='header_login_menu col s1'>
+        <div class='header_login_menu col s1 m1'>
           <button class='btn-floating pulse blue lighten-4' onClick={this.openModal}>
             <img src='/login.png' width='28' height='28'></img>
           </button>
@@ -67,8 +67,8 @@ class LoginMenu extends React.Component {
           style={customStyles}
           contentLabel="Example Modal"
         >
-          <h5 ref={subtitle => this.subtitle = subtitle} class='modal_title'>携帯電話番号を入力</h5>
-          <form  role='form' accept-charset="UTF-8" action='/signin' method='post'>
+          <h5 ref={subtitle => this.subtitle = subtitle} class='modal_title'>ログイン</h5>
+          <form role='form' accept-charset="UTF-8" action='/signin' method='post'>
             <div class='modal_tel'>
               <span>+81</span>
               <input name='tel' type='tel' size='11' maxlength='11' class='modal_tel_input' onChange={this.handleChange}></input>

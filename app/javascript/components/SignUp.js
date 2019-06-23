@@ -56,11 +56,13 @@ class SignUp extends React.Component {
           contentLabel="Example Modal"
         >
           <h5 ref={subtitle => this.subtitle = subtitle} class='modal_title'>新規登録</h5>
-          <form>
-            <label>名前</label>
-            <input type='text' size='20' maxLength='20' />
-            <label>電話番号</label>
-            <input type='tel' size='11' maxLength='11' />
+          <form role='form' accept-charset="UTF-8" action='/signup' method='post'>
+            <div class='modal_input'>
+              <label>名前</label>
+              <input type='text' size='30' maxLength='20' />
+              <label>電話番号</label>
+              <input type='tel' size='30' maxLength='11' />
+            </div>
             <div class='login_parts'>
               <button class='login_button'>登録</button>
             </div>
