@@ -51,10 +51,6 @@ class LoginMenu extends React.Component {
     ok_button_parts.classList.remove('login_parts_disabled');
   }
 
-  handleOnClick() {
-    alert(e);
-  }
-
   render () {
     return (
       <React.Fragment>
@@ -71,14 +67,13 @@ class LoginMenu extends React.Component {
           contentLabel="Example Modal"
         >
           <h5 ref={subtitle => this.subtitle = subtitle} class='modal_title'>携帯電話番号を入力</h5>
-          <p>{this.state.textValue}</p>
-          <form>
+          <form  role='form' accept-charset="UTF-8" action='/signin' method='post'>
             <div class='modal_tel'>
               <span>+81</span>
-              <input type='tel' size='11' maxlength='11' class='modal_tel_input' onChange={this.handleChange}></input>
+              <input name='tel' type='tel' size='11' maxlength='11' class='modal_tel_input' onChange={this.handleChange}></input>
             </div>
             <div id='login_parts_id' class='login_parts_disabled'>
-              <button type='submit' id='login_button_id' class='login_button_disabled' onClick={this.handleOnClick} disabled>続ける</button>
+              <button type='submit' id='login_button_id' class='login_button_disabled' onClick={this.click} disabled>続ける</button>
             </div>
           </form>
           
@@ -93,6 +88,7 @@ class LoginMenu extends React.Component {
 const click =(e)=> {
   // e.preventDefault();
   // console.log(e);
+  console.log([e]);
   alert('React Test!!');
 }
 //ReactDOM.render(<LoginMenu />, appElement);
