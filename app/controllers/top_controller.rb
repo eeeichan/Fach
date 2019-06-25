@@ -4,7 +4,8 @@ class TopController < ApplicationController
   end
 
   def signin
-    if @user
+    binding.pry
+    if !@private_user.nil? && !@user.nil?
       redirect_to controller: 'users', action: 'index'
     end
   end
@@ -22,7 +23,6 @@ class TopController < ApplicationController
   private
 
     def entry_user
-      # @private_user = PrivateUser.new(session_params)
       user_id = User.find_by_id(:last)
       if user_id
         uid = user_id.id + 1
@@ -34,17 +34,17 @@ class TopController < ApplicationController
       @user = @private_user.build_user
       @user.private_user_id = @private_user.id
       @user.save
-      binding.pry
     end
 
     def set_user
-      # binding.pry
-      private_user = PrivateUser.find_by!(tel: session_params[:tel])
-      @user = User.find_by!(private_user_id: private_user.id)
-    rescue
-      flash[:danger] = "ログインに失敗しました"
-      #redirect_to action: 'index'
-      render action: 'index'
+      @private_user = PrivateUser.find_by(tel: session_params[:tel])
+      @user = @private_user.user
+      
+      if @private_user.nil? || @user.nil?
+        flash[:danger] = "ログインに失敗しました"
+        #redirect_to action: 'index'
+        render action: 'index'
+      end
     end
 
     def session_params
