@@ -1,3 +1,3 @@
 class PrivateUser < ApplicationRecord
-  has_one :users, class_name: "User", foreign_key: "uid", dependent: :destroy
+  has_one :user, class_name: "User", dependent: :destroy
 end

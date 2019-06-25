@@ -11,7 +11,7 @@ class TopController < ApplicationController
 
   def signup
     entry_user
-    if @private_user.save!
+    if !@private_user.nil? && !@user.nil?
       redirect_to controller: 'users', action: 'index'
     else
       flash[:danger] = "登録できませんでした"
@@ -22,9 +22,19 @@ class TopController < ApplicationController
   private
 
     def entry_user
-      binding.pry
       # @private_user = PrivateUser.new(session_params)
-      @private_user = PrivateUser.new(session_params)
+      user_id = User.find_by_id(:last)
+      if user_id
+        uid = user_id.id + 1
+      else
+        # 初期値
+        uid = 1
+      end
+      @private_user = PrivateUser.create(tel: session_params[:tel], uid: uid)
+      @user = @private_user.build_user
+      @user.private_user_id = @private_user.id
+      @user.save
+      binding.pry
     end
 
     def set_user
