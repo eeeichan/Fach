@@ -1,5 +1,7 @@
 class TopController < ApplicationController
   before_action :set_user, only: [:signin]
+  before_action :entry_user, only: [:signup]
+
   def index
   end
 
@@ -11,10 +13,11 @@ class TopController < ApplicationController
   end
 
   def signup
-    entry_user
+    binding.pry
     if !@private_user.nil? && !@user.nil?
       redirect_to controller: 'users', action: 'index'
     else
+      @private_user.delete unless @private_user.nil?
       flash[:danger] = "登録できませんでした"
       render action: 'index'
     end
@@ -23,17 +26,22 @@ class TopController < ApplicationController
   private
 
     def entry_user
-      user_id = User.find_by_id(:last)
-      if user_id
-        uid = user_id.id + 1
-      else
-        # 初期値
-        uid = 1
+      begin
+        user = User.last
+        if user
+          uid = user.id + 1
+        else
+          # 初期値
+          uid = 1
+        end
+        @private_user = PrivateUser.create(tel: session_params[:tel], uid: uid)
+        puser_tmp = @private_user.id
+        @user = @private_user.build_user(private_user_id: puser_tmp)
+        
+        @user.save
+      rescue => e
+        pp e
       end
-      @private_user = PrivateUser.create(tel: session_params[:tel], uid: uid)
-      @user = @private_user.build_user
-      @user.private_user_id = @private_user.id
-      @user.save
     end
 
     def set_user
