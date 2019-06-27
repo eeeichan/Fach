@@ -30,6 +30,7 @@
 
 .modal_input {
   margin: 0 auto;
+  margin-bottom: 30px;
   width: 300px;
   label {
     font-size: 18px;
@@ -38,5 +39,25 @@
   input {
     font-size: 30px !important;
     margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 480px) {
+  // styles for small screens and down
+  .top_title h1{
+    font-size: 30px;
+  }
+  .modal_title {
+    font-size: 20px;
+  }
+  #modal_input_id {
+    margin-bottom: 30px;
+    margin: 0 auto;
+    width: 140px !important; 
+    input {
+      font-size: 20px !important; 
+    }
+    label {
+      font-size: 10px;
+    }
   }
 }

@@ -11,7 +11,8 @@ const customStyles = {
     bottom                : 'auto',
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
-    width                 : '75%'
+    width                 : '75%',
+    classNames            : 'react_modal'
   }
 };
 
@@ -70,8 +71,9 @@ class LoginMenu extends React.Component {
           <h5 ref={subtitle => this.subtitle = subtitle} class='modal_title'>ログイン</h5>
           <form role='form' accept-charset="UTF-8" action='/signin' method='post'>
             <div class='modal_tel'>
-              <span>+81</span>
-              <input name='private_users[tel]' type='tel' size='11' maxlength='11' class='modal_tel_input' onChange={this.handleChange}></input>
+              <label>携帯電話番号</label>
+              {/* <span>+81</span> */}
+              <input name='private_users[tel]' type='tel' size='11' maxlength='11' id='modal_tel_input' placeholder='08012345678' onChange={this.handleChange}></input>
             </div>
             <div id='login_parts_id' class='login_parts_disabled'>
               <button type='submit' id='login_button_id' class='login_button_disabled' disabled>続ける</button>

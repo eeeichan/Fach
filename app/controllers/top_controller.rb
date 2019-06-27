@@ -6,14 +6,12 @@ class TopController < ApplicationController
   end
 
   def signin
-    binding.pry
     if !@private_user.nil? && !@user.nil?
       redirect_to controller: 'users', action: 'index'
     end
   end
 
   def signup
-    binding.pry
     if !@private_user.nil? && !@user.nil?
       redirect_to controller: 'users', action: 'index'
     else

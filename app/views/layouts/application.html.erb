@@ -7,17 +7,18 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   </head>
 
   <body>
     <div id='header'>
-      <div class="card-panel heder_nav">
+      <div class="card-panel header_nav">
         <div class='row'>
-          <div class='header_log col s1 m2' >
+          <div class='header_log col s1 m1' >
             <%= image_tag("/fach-logo-43.png", :size => "100x50", :alt => "アイコン") %>
           </div>
-          <div class='col s10 m9'></div>
-            <% unless @user %>
+          <div class='col s10 m10'></div>
+            <% unless @private_user %>
               <%= javascript_pack_tag 'application' %>
               <%= react_component("LoginMenu") %>
             <% end %>
