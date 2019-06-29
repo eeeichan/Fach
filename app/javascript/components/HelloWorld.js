@@ -5,7 +5,7 @@ class HelloWorld extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h3>Name: {this.props.greeting}</h3>
+        <h3>Users/index</h3>
         <h4>It is {new Date().toLocaleTimeString()}.</h4>
       </React.Fragment>
     );

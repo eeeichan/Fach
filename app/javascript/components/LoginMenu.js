@@ -2,6 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import Modal from 'react-modal';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
+
 
 const customStyles = {
   content : {
@@ -20,6 +22,7 @@ const customStyles = {
 class LoginMenu extends React.Component {
   constructor() {
     super();
+
     this.state = {
       modalIsOpen: false
     };
@@ -52,10 +55,14 @@ class LoginMenu extends React.Component {
     ok_button_parts.classList.remove('login_parts_disabled');
   }
 
+  handleOnClick(event) {
+
+  }
+
   render () {
     return (
       <React.Fragment>
-        <div class='header_login_menu col s1'>
+        <div class='header_login_menu col s1 m1'>
           <button class='btn-floating pulse blue lighten-4' onClick={this.openModal}>
             <img src='/login.png' width='28' height='28'></img>
           </button>
@@ -67,14 +74,16 @@ class LoginMenu extends React.Component {
           style={customStyles}
           contentLabel="Example Modal"
         >
-          <h5 ref={subtitle => this.subtitle = subtitle} class='modal_title'>携帯電話番号を入力</h5>
-          <form  role='form' accept-charset="UTF-8" action='/signin' method='post'>
+          <h5 ref={subtitle => this.subtitle = subtitle} class='modal_title'>ログイン</h5>
+          <form role='form' accept-charset="UTF-8" action='/signin' method='post'>
             <div class='modal_tel'>
-              <span>+81</span>
-              <input name='tel' type='tel' size='11' maxlength='11' class='modal_tel_input' onChange={this.handleChange}></input>
+              <label>携帯電話番号</label>
+              {/* <span>+81</span> */}
+              <input name='private_users[tel]' type='tel' size='11' maxlength='11' id='modal_tel_input' placeholder='08012345678' onChange={this.handleChange}></input>
             </div>
+            <input type="hidden" name="authenticity_token" value={this.props.csrf_token} ></input>
             <div id='login_parts_id' class='login_parts_disabled'>
-              <button type='submit' id='login_button_id' class='login_button_disabled' onClick={this.click} disabled>続ける</button>
+              <button type='submit' id='login_button_id' class='login_button_disabled' disabled>続ける</button>
             </div>
           </form>
           
@@ -85,12 +94,5 @@ class LoginMenu extends React.Component {
   }
 }
 
-
-const click =(e)=> {
-  // e.preventDefault();
-  // console.log(e);
-  console.log([e]);
-  alert('React Test!!');
-}
 //ReactDOM.render(<LoginMenu />, appElement);
 export default LoginMenu;

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_23_100909) do
+ActiveRecord::Schema.define(version: 2019_06_25_130033) do
 
   create_table "chat_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "post_to_user"
@@ -29,10 +29,13 @@ ActiveRecord::Schema.define(version: 2019_06_23_100909) do
 
   create_table "private_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.datetime "tel"
+    t.string "tel"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "uid"
+    t.index ["tel"], name: "index_private_users_on_tel", unique: true
+    t.index ["uid"], name: "index_private_users_on_uid", unique: true
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -48,6 +51,7 @@ ActiveRecord::Schema.define(version: 2019_06_23_100909) do
     t.integer "face_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["private_user_id"], name: "index_users_on_private_user_id", unique: true
   end
 
 end

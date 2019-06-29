@@ -1,4 +1,6 @@
 class User < ApplicationRecord
-  has_many :private_users, class_name: "PrivateUser", foreign_key: "private_user_id", dependent: :destroy
-  has_many :chat_spaces, class_name: "ChatSpace", foreign_key: "chat_space_id", dependent: :destroy
+  belongs_to :private_user, class_name: "PrivateUser", foreign_key: "uid", optional: true
+  has_one :chat_spaces, class_name: "ChatSpace", dependent: :destroy
+
+  validates :private_user_id, presence: true, uniqueness: true
 end

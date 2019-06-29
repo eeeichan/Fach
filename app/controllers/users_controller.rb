@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     #@users = User.all
-    @user = User.find_by_id(1)
+    binding.pry
   end
 
   # GET /users/1

@@ -90,3 +90,7 @@ end
 
 # Debug
 gem 'pry-byebug', group: :development
+
+# SCSS
+gem 'sprockets'
+gem 'sprockets-rails'
