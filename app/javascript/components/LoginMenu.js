@@ -2,6 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import Modal from 'react-modal';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
+
 
 const customStyles = {
   content : {
@@ -11,8 +13,7 @@ const customStyles = {
     bottom                : 'auto',
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
-    width                 : '75%',
-    classNames            : 'react_modal'
+    width                 : '75%'
   }
 };
 
@@ -21,6 +22,7 @@ const customStyles = {
 class LoginMenu extends React.Component {
   constructor() {
     super();
+
     this.state = {
       modalIsOpen: false
     };
@@ -53,6 +55,10 @@ class LoginMenu extends React.Component {
     ok_button_parts.classList.remove('login_parts_disabled');
   }
 
+  handleOnClick(event) {
+
+  }
+
   render () {
     return (
       <React.Fragment>
@@ -75,6 +81,7 @@ class LoginMenu extends React.Component {
               {/* <span>+81</span> */}
               <input name='private_users[tel]' type='tel' size='11' maxlength='11' id='modal_tel_input' placeholder='08012345678' onChange={this.handleChange}></input>
             </div>
+            <input type="hidden" name="authenticity_token" value={this.props.csrf_token} ></input>
             <div id='login_parts_id' class='login_parts_disabled'>
               <button type='submit' id='login_button_id' class='login_button_disabled' disabled>続ける</button>
             </div>

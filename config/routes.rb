@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  get 'plaies/index'
   root 'top#index'
 
+  get  'signin', to: 'top#index'
+  get  'signup', to: 'top#index'
   post 'signin', to: 'top#signin'
   post 'signup', to: 'top#signup'
 
