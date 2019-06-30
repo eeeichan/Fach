@@ -8,7 +8,6 @@ class TopController < ApplicationController
 
   def signin
     if !@private_user.nil? && !@user.nil?
-      binding.pry
       session[:user_id] = @private_user.id
       redirect_to plaies_index_url
     else

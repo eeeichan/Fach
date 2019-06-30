@@ -73,21 +73,20 @@ class LoginMenu extends React.Component {
           onRequestClose={this.closeModal}
           style={customStyles}
           contentLabel="Example Modal"
-        >
-          <h5 ref={subtitle => this.subtitle = subtitle} class='modal_title'>ログイン</h5>
-          <form role='form' accept-charset="UTF-8" action='/signin' method='post'>
-            <div class='modal_tel'>
-              <label>携帯電話番号</label>
-              {/* <span>+81</span> */}
-              <input name='private_users[tel]' type='tel' size='11' maxlength='11' id='modal_tel_input' placeholder='08012345678' onChange={this.handleChange}></input>
-            </div>
-            <input type="hidden" name="authenticity_token" value={this.props.csrf_token} ></input>
-            <div id='login_parts_id' class='login_parts_disabled'>
-              <button type='submit' id='login_button_id' class='login_button_disabled' disabled>続ける</button>
-            </div>
-          </form>
-          
-        </Modal>
+          >
+            <h5 ref={subtitle => this.subtitle = subtitle} class='modal_title'>ログイン</h5>
+            <form role='form' accept-charset="UTF-8" action='/signin' method='post'>
+              <div class='modal_tel'>
+                <label>携帯電話番号</label>
+                {/* <span>+81</span> */}
+                <input name='private_users[tel]' type='tel' size='11' maxlength='11' id='modal_tel_input' placeholder='08012345678' onChange={this.handleChange}></input>
+              </div>
+              <input type="hidden" name="authenticity_token" value={this.props.csrf_token} ></input>
+              <div id='login_parts_id' class='login_parts_disabled'>
+                <button type='submit' id='login_button_id' class='login_button_disabled' disabled>続ける</button>
+              </div>
+            </form>
+          </Modal>
         </div>
       </React.Fragment>
     );

@@ -1,0 +1,26 @@
+.profile_body {
+  text-align: center;
+  margin: 0 auto;
+  .profile_photo {
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: whitesmoke;
+  }
+  button {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: white;
+    border:hidden;
+  }
+  .profile_info {
+    border-radius: 10px;
+    text-align: left;
+    padding: 20px 20px;
+    font-size: 20px;
+    background-color: whitesmoke;
+    height: 200px;
+  }
+}
