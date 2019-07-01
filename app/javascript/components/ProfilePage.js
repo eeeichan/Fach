@@ -1,6 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Navbar from './Navbar';
+import Upload from './Upload';
+import Setting from './Setting';
+import Edit from './Edit';
 
 class ProfilePage extends React.Component {
   render () {
@@ -14,24 +19,12 @@ class ProfilePage extends React.Component {
             </div>
             <h4>{this.props.user_name}</h4>
             <div class='row'>
-              <div class='upload col s4'>
-                <button>
-                  <i class="material-icons">camera_enhance</i>
-                </button>
-                <p>画像を追加する</p>
-              </div>
-              <div class='profile_edit col s4'>
-                <button>
-                  <i class="material-icons">settings</i>
-                </button>
-                <p>設定</p>
-              </div>
-              <div class='user_setting col s4'>
-                <button>
-                  <i class="material-icons">assignment_ind</i>
-                </button>
-                <p>情報を編集</p>
-              </div>
+              <Router>
+                <Navbar /><hr/>
+                <Route path='/Upload' component={Upload}/>
+                <Route path='/Setting' component={Setting}/>
+                <Route path='/Edit' component={Edit}/>
+              </Router>
             </div>
             
             <div class='profile_info'>
