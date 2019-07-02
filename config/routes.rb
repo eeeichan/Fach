@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'plaies/index'
+  get 'app/index'
   root 'top#index'
 
   get  'signin', to: 'top#index'

@@ -7,7 +7,19 @@ import Upload from './Upload';
 import Setting from './Setting';
 import Edit from './Edit';
 
-class ProfilePage extends React.Component {
+const path = location.pathname ;
+
+class ProfilePage extends React.Component {  
+  constructor(props) {
+    super(props);
+    this.state = {
+      session_flg: true
+    };
+  }
+  flgFunc() {
+    this.setState({ session_flg: false });
+  }
+
   render () {
     return (
       <React.Fragment>
@@ -20,16 +32,21 @@ class ProfilePage extends React.Component {
             <h4>{this.props.user_name}</h4>
             <div class='row'>
               <Router>
-                <Navbar /><hr/>
-                <Route path='/Upload' component={Upload}/>
-                <Route path='/Setting' component={Setting}/>
-                <Route path='/Edit' component={Edit}/>
+                <Navbar  dataFlg={() => { this.flgFunc(); }}/><hr/>
+                <Route path='/app/Upload' component={Upload}/>
+                <Route path='/app/Setting' component={Setting}/>
+                <Route path='/app/Edit' component={Edit}/>
               </Router>
             </div>
-            
-            <div class='profile_info'>
-              {this.props.user_profile}
-            </div>
+            {
+              (() => {
+                if (this.state.session_flg === true){
+                  console.log(path);
+                  console.log(this.state.session_flg);
+                  return <Comments />                  
+                }
+              })()
+            }
           </div>
           <div class='col s3'></div>
         </div>
@@ -37,6 +54,16 @@ class ProfilePage extends React.Component {
     );
   }
 }
-
+class Comments extends React.Component {
+  render() {
+    return (
+      <React.Fragment>
+                    <div class='profile_info'>
+              {this.props.user_profile}
+            </div>
+      </React.Fragment>
+    );
+  }
+}
 
 export default ProfilePage
