@@ -43,13 +43,13 @@ class ProfilePage extends React.Component {
                   </button>
                   <p>画像を追加する</p>
                 </div>
-                <div class='profile_edit col s4'>
+                <div class='setting col s4'>
                   <button onClick={() => { this.handleToSettingPage(); }}>
                     <i class="material-icons">settings</i>
                   </button>
                   <p>設定</p>
                 </div>
-                <div class='user_setting col s4'>
+                <div class='user_edit col s4'>
                   <button onClick={() => { this.handleToEditPage(); }}>
                     <i class="material-icons">edit</i>
                   </button>

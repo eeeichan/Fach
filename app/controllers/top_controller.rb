@@ -9,7 +9,7 @@ class TopController < ApplicationController
   def signin
     if !@private_user.nil? && !@user.nil?
       session[:user_id] = @private_user.id
-      redirect_to apps_index_url
+      redirect_to controller: 'apps', action: 'index'
     else
       flash[:danger] = "ログインに失敗しました"
       #redirect_to action: 'index'
