@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  resources :apps, only: [:index]
-  get '/apps/*path', to: 'apps#index'
-  # get 'app/index'
+
   root 'top#index'
 
   get  'signin', to: 'top#index'
@@ -9,6 +7,10 @@ Rails.application.routes.draw do
   post 'signin', to: 'top#signin'
   post 'signup', to: 'top#signup'
 
-  resources :users
+  resources :apps, only: [:index]
+  get '/apps/*path', to: 'apps#index'
+
+  post '/apps/edit', to: 'apps#edit'
+  #resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,86 @@
+.profile_info {
+  border-radius: 10px;
+  text-align: left;
+  padding: 20px 20px;
+  font-size: 20px;
+  background-color: whitesmoke;
+  height: 200px;
+}
+
+.profile_edit {
+  font-family: 'Lato', 'Noto Sans JP', '游ゴシック Medium', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  color:white;
+  padding-top: 20px;
+  margin: 0 auto;
+  width: 400px;
+  text-align: center;
+
+  label {
+    margin: 5px 0px 10px 0px;
+    font-size: 15px;
+    color:white;
+  }
+  div {
+    input {
+      text-align: center;
+      font-size: 22px;
+    }
+  }
+
+  .name_input {
+    label {
+      margin: 0;
+    }
+  }
+  .birth_input {
+    input {
+      padding-left: 27px;
+      color: black;
+      font-style: oblique;
+    }
+  }
+  .personality_input {
+    input {
+      width: 200px;
+      padding-top: none;
+      margin: 15px 10px;
+    }
+  }
+  .profile_input {
+    label {
+      margin-top: 20px;
+      padding-bottom: 10px;
+    }
+    textarea {
+      font-size: 18px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      height: 200px;
+      background-color: white;
+      resize: none;
+      outline: none;
+    }
+  }
+  .save_parts {
+    margin-top: 20px;
+    text-align: center;
+    .save_button {
+      width: 80px;
+      height: 40px;
+      font-size: 20px;
+      display: inline-block;
+      
+      text-decoration: none;
+      border-radius: 30px 30px;
+      font-weight: bold;
+      color: #FFF;
+      background-image: linear-gradient(45deg, #709dff 0%, #b0c9ff 100%);
+      transition: .4s;
+    }
+    
+    .save_button:hover {
+      background-image: linear-gradient(45deg, #709dff 50%, #b0c9ff 100%);
+    }
+  }
+}
