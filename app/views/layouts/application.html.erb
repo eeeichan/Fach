@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
   <body>
@@ -18,9 +19,11 @@
             <%= image_tag("/fach-logo-43.png", :size => "100x50", :alt => "アイコン") %>
           </div>
           <div class='col s10 m10'></div>
+          <%= javascript_pack_tag 'application' %>
             <% if (session[:user_id]).nil? %>
-              <%= javascript_pack_tag 'application' %>
               <%= react_component("LoginMenu",{ csrf_params: request_forgery_protection_token, csrf_token: form_authenticity_token }) %>
+            <% else %>
+              <%= react_component("AppHeader") %>
             <% end %>
         </div>
       </div>
