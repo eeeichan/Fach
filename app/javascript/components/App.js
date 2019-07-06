@@ -4,8 +4,6 @@ import ReactDOM from 'react-dom'
 
 import { BrowserRouter } from 'react-router-dom';
 import { Router, Redirect, Route, Switch } from 'react-router';
-import { createStore, combineReducers } from "redux";
-import { Provider } from "react-redux";
 
 import Upload from './Upload';
 import Setting from './Setting';
@@ -29,9 +27,9 @@ class App extends React.Component {
           <Route exact path='/apps/index' 
             render={props => <ProfilePage user_name={this.user_name} photo_id={this.photo_id} user_profile={this.user_profile} {...props} />}
           />
-          <Route exact path='/apps/Upload' component={Upload}/>
-          <Route exact path='/apps/Setting' component={Setting}/>
-          <Route exact path='/apps/Edit' component={Edit}/>
+          <Route exact path='/apps/upload' component={Upload}/>
+          <Route exact path='/apps/setting' component={Setting}/>
+          <Route exact path='/apps/edit' component={Edit}/>
           {/* <Route exact component={NotFound} /> */}
         </Switch>
       </BrowserRouter>

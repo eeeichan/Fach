@@ -16,8 +16,14 @@ class ProfilePage extends React.Component {
   flgFunc() {
     this.setState({ session_flg: false });
   }
-  handleToAboutPage = () => {
-    this.props.history.push('/apps/Edit')
+  handleToEditPage = () => {
+    this.props.history.push('/apps/edit')
+  }
+  handleToUploadPage = () => {
+    this.props.history.push('/apps/upload')
+  }
+  handleToSettingPage = () => {
+    this.props.history.push('/apps/setting')
   }
 
   render () {
@@ -32,20 +38,20 @@ class ProfilePage extends React.Component {
               <h4>{this.props.user_name}</h4>
               <div class='row'>
                 <div class='upload col s4'>
-                  <Link to='/apps/Upload'><button>
-                    <i class="material-icons">assignment_ind</i>
-                  </button></Link>
+                  <button onClick={() => { this.handleToUploadPage(); }}>
+                    <i class="material-icons">add_circle_outline</i>
+                  </button>
                   <p>画像を追加する</p>
                 </div>
                 <div class='profile_edit col s4'>
-                  <Link to='/apps/Setting'><button>
-                    <i class="material-icons">assignment_ind</i>
-                  </button></Link>
+                  <button onClick={() => { this.handleToSettingPage(); }}>
+                    <i class="material-icons">settings</i>
+                  </button>
                   <p>設定</p>
                 </div>
                 <div class='user_setting col s4'>
-                  <button onClick={() => { this.handleToAboutPage(); }}>
-                    <i class="material-icons">assignment_ind</i>
+                  <button onClick={() => { this.handleToEditPage(); }}>
+                    <i class="material-icons">edit</i>
                   </button>
                   <p>情報を編集</p>
                 </div>
