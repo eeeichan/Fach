@@ -9,7 +9,7 @@ class TopController < ApplicationController
   def signin
     if !@private_user.nil? && !@user.nil?
       session[:user_id] = @private_user.id
-      redirect_to plaies_index_url
+      redirect_to apps_index_url
     else
       flash[:danger] = "ログインに失敗しました"
       #redirect_to action: 'index'
@@ -20,7 +20,7 @@ class TopController < ApplicationController
   def signup
     if !@private_user.nil? && !@user.nil?
       session[:user_id] = @private_user.id
-      redirect_to controller: 'users', action: 'index'
+      redirect_to controller: 'apps', action: 'index'
     else
       @private_user.delete unless @private_user.nil?
       flash[:danger] = "登録できませんでした"

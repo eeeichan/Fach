@@ -1,0 +1,4 @@
+<p>header zoon</p>
+
+<%= javascript_pack_tag 'application' %>
+<%= react_component("App", {user_photo: @user.photo_id, user_name: @user.nickname, user_profile: @user.profile}) %>

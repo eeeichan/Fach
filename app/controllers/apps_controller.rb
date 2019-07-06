@@ -1,4 +1,4 @@
-class AppController < ApplicationController
+class AppsController < ApplicationController
   def index
     @private_user = PrivateUser.find(session[:user_id])
     @user = User.find_by(private_user_id: @private_user.id)
