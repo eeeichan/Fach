@@ -2,11 +2,14 @@
   text-align: center;
   margin: 0 auto;
   .profile_photo {
-    margin: 0 auto;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-color: whitesmoke;
+    // margin: 0 auto;
+    // width: 200px;
+    // height: 200px;
+    // border-radius: 50%;
+    // background-color: whitesmoke;
+    img {
+      border-radius: 50%;
+    }
   }
   button {
     width: 70px;

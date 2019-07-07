@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_06_151430) do
+ActiveRecord::Schema.define(version: 2019_07_07_081609) do
 
   create_table "chat_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "post_to_user"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 2019_07_06_151430) do
     t.integer "from_user_id"
     t.integer "to_user_id"
     t.integer "chat_room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "photos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "uid"
+    t.string "path"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
