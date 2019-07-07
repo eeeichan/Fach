@@ -8,7 +8,7 @@ class Upload extends React.Component {
     super(props);
     this.state = {
       // 画像を表示するためにstateを作成します.
-      imageData: ""
+      imageData: "/profile_images/default.png"
     };
   }
 

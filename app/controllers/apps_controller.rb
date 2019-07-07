@@ -44,7 +44,7 @@ class AppsController < ApplicationController
       @photo = Photo.new(uid: @user.id, path: "/profile_images/#{name}")
       if @photo.save!
         flash[:notice] = "プロフィール画像を登録しました"
-        render 'index'
+        redirect_to '/apps'
       end
     end
 
