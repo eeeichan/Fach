@@ -8,38 +8,55 @@ class Upload extends React.Component {
     super(props);
     this.state = {
       // 画像を表示するためにstateを作成します.
-      profileImage: ""
+      imageData: ""
     };
   }
 
-  // 後ほど記述
-  createUser = payload => {};
-
-  setImage = (e, setFieldValue) => {
-    let files = e.target.files;
-    let reader = new FileReader();
-    // 画像をbase64にエンコードします.
-    reader.readAsDataURL(files[0]);
-    reader.onload = () => {
-      // stateに画像を入れることで描写させます.
-      this.setState({ profileImage: reader.result });
-      // formikで送信できるようにsetFieldValue()を呼び出します.
-      setFieldValue("profile_image", reader.result);
-    };
-  };
-
+  onFileChange(e) {
+    const files = e.target.files
+    if(files.length > 0) {
+      var file = files[0]
+      var reader = new FileReader()
+      reader.onload = (e) => {
+          this.setState({ imageData: e.target.result })
+      };
+      reader.readAsDataURL(file)
+  } else {
+    this.setState({ imageData: null })
+  }
+  }
 
 
   render () {
+    const imageData = this.state.imageData
+    let preview = ''
+    if(imageData != null) {
+      preview = (
+        <div class='upload_preview'>
+          <img src={imageData}/>
+        </div>
+      )
+    }
     return (
       <React.Fragment>
-        <div class='upload_form'>
-          <form action='/apps/upload' method='post' enctype='multipart/form-data'>
-            <label>プロフィール画像</label>
-            <input name='profile[photo]' type='file'></input>
-            <input type='hidden' name='authenticity_token' defaultValue={this.props.csrf_token} ></input>
-            <button type='submit' name=''>アップロード</button>
-          </form>
+        <div class='row'>
+          <div class='col s3'></div>
+          <div class='col s6'>
+            <div class='upload_form'>
+              {/* プレビュー */}
+              {preview}
+              <form action='/apps/upload' method='post' enctype='multipart/form-data'>
+                <label for='upload_button'>画像を選択する
+                  <input id='upload_button' name='profile[photo]' type='file' onChange={ (e) => {this.onFileChange(e)}}></input>
+                </label>
+                <input type='hidden' name='authenticity_token' defaultValue={this.props.csrf_token} ></input>
+                <div class='save_parts'>
+                  <button type='submit' id='save_button_id' class='save_button'> アップロード</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class='col s3'></div>
         </div>
       </React.Fragment>
     );
