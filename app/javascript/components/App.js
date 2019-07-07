@@ -19,6 +19,7 @@ class App extends React.Component {
 
   render () {
     this.csrf_token = this.props.csrf_token
+    this.user_photo = this.props.user_photo
     this.user_name = this.props.user_name;
     this.photo_id = this.props.photo_id;
     this.user_profile = this.props.user_profile;
@@ -29,9 +30,11 @@ class App extends React.Component {
       <BrowserRouter>
         <Switch>
           <Route exact path='/apps' 
-            render={props => <ProfilePage user_name={this.user_name} photo_id={this.photo_id} user_profile={this.user_profile} {...props} />}
+            render={props => <ProfilePage user_photo={this.user_photo} user_name={this.user_name} photo_id={this.photo_id} user_profile={this.user_profile} {...props} />}
           />
-          <Route exact path='/apps/upload' component={Upload}/>
+          <Route exact path='/apps/upload' 
+            render={props => <Upload csrf_token={this.csrf_token} {...props} />}
+          />
           <Route exact path='/apps/setting' component={Setting}/>
           <Route exact path='/apps/edit' 
             render={props => <Edit csrf_token={this.csrf_token} 

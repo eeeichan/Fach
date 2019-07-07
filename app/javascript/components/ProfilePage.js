@@ -33,21 +33,21 @@ class ProfilePage extends React.Component {
           <div class='col s3'></div>
             <div class='profile_body col s6 m6'>
               <div class='profile_photo'>
-                {this.props.photo_id}
+                <img src={this.props.user_photo} width='200' height='200'></img>
               </div>
               <h4>{this.props.user_name}</h4>
               <div class='row'>
-                <div class='upload col s4'>
-                  <button onClick={() => { this.handleToUploadPage(); }}>
-                    <i class="material-icons">add_circle_outline</i>
-                  </button>
-                  <p>画像を追加する</p>
-                </div>
                 <div class='setting col s4'>
                   <button onClick={() => { this.handleToSettingPage(); }}>
                     <i class="material-icons">settings</i>
                   </button>
                   <p>設定</p>
+                </div>
+                <div class='upload col s4'>
+                  <button onClick={() => { this.handleToUploadPage(); }}>
+                    <i class="material-icons">add_circle_outline</i>
+                  </button>
+                  <p>画像を追加する</p>
                 </div>
                 <div class='user_edit col s4'>
                   <button onClick={() => { this.handleToEditPage(); }}>

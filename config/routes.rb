@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/apps/*path', to: 'apps#index'
 
   post '/apps/edit', to: 'apps#edit'
+  post '/apps/upload', to: 'apps#upload'
   #resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
