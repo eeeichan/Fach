@@ -28,10 +28,19 @@
   }
 }
 
+.sex_input {
+  input{ 
+  //   -webkit-appearance: radio;
+    position: unset !important;
+    opacity: 1 !important;
+  } 
+}
+
 .modal_input {
   margin: 0 auto;
   margin-bottom: 30px;
   width: 300px;
+
   label {
     font-size: 18px;
     margin-bottom: 10px;
