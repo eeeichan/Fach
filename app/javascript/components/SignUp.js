@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import Modal from 'react-modal';
 import ReactDOM from 'react-dom';
+import Birth from './Birth';
 
 import { RadioGroup, RadioButton } from 'react-radio-buttons';
 
@@ -49,6 +50,7 @@ class SignUp extends React.Component {
       selectedOption: e.currentTarget.value
     });
   }
+  
 
   render () {
     return (
@@ -69,35 +71,34 @@ class SignUp extends React.Component {
             <div id='modal_input_id' class='modal_input' >
               <label>携帯電話番号</label>
               <input name='private_users[tel]' type='tel' maxLength='11' placeholder='08012345678' />
-            </div>
-            <div class='birth_input'>
-              <label>誕生日</label>
-              <input type='date' name='private_users[birth]' />
-            </div>
-            <div class='sex_input'>
-              <div className="form-check">
-                <label>
-                  <input
-                    type="radio"
-                    name="private_users[sex]"
-                    value="0"
-                    checked={true}
-                    className="form-check-input"
-                  />
-                  男
-                </label>
+              <div class='birth_input'>
+                <Birth />
               </div>
+              <div class='sex_input'>
+                <div className="form-check">
+                  <label>
+                    <input
+                      type="radio"
+                      name="private_users[sex]"
+                      value="0"
+                      checked={true}
+                      className="form-check-input"
+                    />
+                    男
+                  </label>
+                </div>
 
-              <div className="form-check">
-                <label>
-                  <input
-                    type="radio"
-                    name="private_users[sex]"
-                    value="1"
-                    className="form-check-input"
-                  />
-                  女
-                </label>
+                <div className="form-check">
+                  <label>
+                    <input
+                      type="radio"
+                      name="private_users[sex]"
+                      value="1"
+                      className="form-check-input"
+                    />
+                    女
+                  </label>
+                </div>
               </div>
             </div>
             <div class='login_parts'>
