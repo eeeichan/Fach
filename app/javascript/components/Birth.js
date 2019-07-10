@@ -22,13 +22,13 @@ for (let i = 1; i <= 31; i++) {
 }
 
 const Year = () => (
-  <Select options={yearItems} placeholder={"年"} />
+  <Select name={"private_users[birth1]"} options={yearItems} placeholder={"年"} />
 )
 const Month = () => (
-  <Select options={monthItems} placeholder={"月"}/>
+  <Select name={"private_users[birth2]"} options={monthItems} placeholder={"月"}/>
 )
 const Day = () => (
-  <Select options={dayItems} placeholder={"日"}/>
+  <Select name={"private_users[birth3]"} options={dayItems} placeholder={"日"}/>
 )
 
 class Birth extends React.Component {

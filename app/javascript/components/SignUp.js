@@ -104,6 +104,7 @@ class SignUp extends React.Component {
                 </div>
               </div>
             </div>
+            <input type="hidden" name="authenticity_token" value={this.props.csrf_token} ></input>
             <div class='login_parts'>
               <button type='submit' id='login_button_id' class='login_button'>登録</button>
             </div>
