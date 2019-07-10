@@ -74,6 +74,7 @@ class SignUp extends React.Component {
               <div class='birth_input'>
                 <Birth />
               </div>
+              <label>性別</label>
               <div class='sex_input'>
                 <div className="form-check">
                   <label>
@@ -82,10 +83,11 @@ class SignUp extends React.Component {
                       name="private_users[sex]"
                       value="0"
                       checked={true}
-                      className="form-check-input"
+                      class="form-check-input with-gap"
                     />
-                    男
+                     <span>男</span>
                   </label>
+                  <div class="check"><div class="inside"></div></div>
                 </div>
 
                 <div className="form-check">
@@ -94,10 +96,11 @@ class SignUp extends React.Component {
                       type="radio"
                       name="private_users[sex]"
                       value="1"
-                      className="form-check-input"
+                      class="form-check-input with-gap"
                     />
-                    女
+                    <span>女</span>
                   </label>
+                  <div class="check"><div class="inside"></div></div>
                 </div>
               </div>
             </div>

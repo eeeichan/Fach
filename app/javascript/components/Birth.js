@@ -22,24 +22,16 @@ for (let i = 1; i <= 31; i++) {
 }
 
 const Year = () => (
-  <Select options={yearItems} />
+  <Select options={yearItems} placeholder={"年"} />
 )
 const Month = () => (
-  <Select options={monthItems} />
+  <Select options={monthItems} placeholder={"月"}/>
 )
 const Day = () => (
-  <Select options={dayItems} />
+  <Select options={dayItems} placeholder={"日"}/>
 )
 
 class Birth extends React.Component {
-  constructor(props){
-    super(props);
-    this.state ={
-      year: yearSet,
-      month: monthSet,
-      day: daySet
-    }
-  }
 
   render () {
     return (
