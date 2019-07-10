@@ -3,6 +3,15 @@ import PropTypes from "prop-types"
 
 
 class Edit extends React.Component {
+  constructor(props) {
+    super(props);
+    this.setState = {
+      size: ''
+    }
+  }
+  handleChange () {
+    alert('test');
+  }
 
   render () {
     return (
@@ -11,14 +20,10 @@ class Edit extends React.Component {
           <div class="col s3"></div>
           <div class="col s6">
             <div class='profile_edit'>
-              <form role='form' accept-charset='UTF-8' action='/apps/edit' method='post'>
+              <form role='form' acceptCharset='UTF-8' action='/apps/edit' method='post'>
                 <div class='name_input'>
                   <label>名前</label>
                   <input name='profile[nickname]' type='text' defaultValue={this.props.user_nickname} ></input>
-                </div>
-                <div class='birth_input'>
-                  <label>誕生日</label>
-                  <input name='profile[birth]' type='date' min='1900-01-01' defaultValue={this.props.user_birth}></input>
                 </div>
                 <div class='job_input'>
                   <label>仕事</label>

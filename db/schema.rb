@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_07_081609) do
+ActiveRecord::Schema.define(version: 2019_07_07_141419) do
 
   create_table "chat_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "post_to_user"
@@ -41,13 +41,14 @@ ActiveRecord::Schema.define(version: 2019_07_07_081609) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "uid"
+    t.integer "sex", null: false
+    t.date "birth"
     t.index ["tel"], name: "index_private_users_on_tel", unique: true
     t.index ["uid"], name: "index_private_users_on_uid", unique: true
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname"
-    t.datetime "birth"
     t.string "school"
     t.string "job"
     t.string "profile"

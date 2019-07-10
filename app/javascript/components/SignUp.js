@@ -2,6 +2,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import Modal from 'react-modal';
 import ReactDOM from 'react-dom';
+import Birth from './Birth';
+
+import { RadioGroup, RadioButton } from 'react-radio-buttons';
 
 const customStyles = {
   content : {
@@ -17,10 +20,11 @@ const customStyles = {
 
 class SignUp extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
+      selectedOption: "option1"
     };
 
     this.openModal = this.openModal.bind(this);
@@ -41,6 +45,13 @@ class SignUp extends React.Component {
     this.setState({modalIsOpen: false});
   }
 
+  radioChange(e) {
+    this.setState({
+      selectedOption: e.currentTarget.value
+    });
+  }
+  
+
   render () {
     return (
       <React.Fragment>
@@ -60,7 +71,40 @@ class SignUp extends React.Component {
             <div id='modal_input_id' class='modal_input' >
               <label>携帯電話番号</label>
               <input name='private_users[tel]' type='tel' maxLength='11' placeholder='08012345678' />
+              <div class='birth_input'>
+                <Birth />
+              </div>
+              <label>性別</label>
+              <div class='sex_input'>
+                <div className="form-check">
+                  <label>
+                    <input
+                      type="radio"
+                      name="private_users[sex]"
+                      value="0"
+                      checked={true}
+                      class="form-check-input with-gap"
+                    />
+                     <span>男</span>
+                  </label>
+                  <div class="check"><div class="inside"></div></div>
+                </div>
+
+                <div className="form-check">
+                  <label>
+                    <input
+                      type="radio"
+                      name="private_users[sex]"
+                      value="1"
+                      class="form-check-input with-gap"
+                    />
+                    <span>女</span>
+                  </label>
+                  <div class="check"><div class="inside"></div></div>
+                </div>
+              </div>
             </div>
+            <input type="hidden" name="authenticity_token" value={this.props.csrf_token} ></input>
             <div class='login_parts'>
               <button type='submit' id='login_button_id' class='login_button'>登録</button>
             </div>
