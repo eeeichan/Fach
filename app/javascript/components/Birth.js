@@ -2,14 +2,14 @@ import React from "react"
 import PropTypes from "prop-types"
 import Select from 'react-select'
 
-const yearItems = [];
+
 const adultCheckYear = () => {
   const dt = new Date();
   const nowYear = dt.getFullYear();
   const lastYear = Number(nowYear) - 18;
   return lastYear;
 }
-
+const yearItems = [];
 for (let i = 1950; i <= adultCheckYear(); i++) {
   yearItems.push(
     { value: i, label: i},
@@ -39,8 +39,6 @@ for (let i = 1; i <= 31; i++) {
 //   <Select name={"private_users[birth3]"} options={dayItems} placeholder={"日"}/>
 // )
 
-let textInput = React.createRef();
-
 
 class Birth extends React.Component {
   constructor(props){
@@ -49,7 +47,8 @@ class Birth extends React.Component {
       year: '',
       month: '',
       dayset: '',
-      day: dayItems
+      day: dayItems,
+      message: ''
     }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -90,13 +89,22 @@ class Birth extends React.Component {
     if (day.length === 1) {
       day = '0' + day;
     }
-    console.log( year + month + day);
+    // console.log( year + month + day);
+    const dt = new Date;
+    dt.setFullYear(dt.getFullYear() - 18);
+    const inputBirth = new Date(year, month - 1, day);
+    if (dt.getTime() < inputBirth.getTime()) {
+      this.setState({message: "18歳以下は登録できません"})
+    }else {
+      this.setState({message: ""})
+    }
   }
 
   render () {
     return (
       <React.Fragment>
         <div>
+          <p>{this.state.message}</p>
           <label>誕生日</label>
             <Select
               id={"yearSelect"}
