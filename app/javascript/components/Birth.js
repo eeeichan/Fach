@@ -58,6 +58,7 @@ class Birth extends React.Component {
   }
 
   getMonthDays = (e) => {
+    console.log("getMonthDays");
     this.setState({month: e.value});
     const year = this.state.year;
     const month_tmp = e.value;
@@ -77,18 +78,21 @@ class Birth extends React.Component {
       )
     }
     this.setState({day: dayItems});
+    return month_tmp;
   };
 
   checkAdult = (e) => {
+    this.setState({dayset: e.value});
     const year = String(this.state.year);
     let month = String(this.state.month);
-    if (month.length === 1) {
-      month = '0' + month;
-    }
-    let day = String(e.value);
-    if (day.length === 1) {
-      day = '0' + day;
-    }
+    const day = String(this.state.dayset);
+    // if (month.length === 1) {
+    //   month = '0' + month;
+    // }
+    // let day = String(e.value);
+    // if (day.length === 1) {
+    //   day = '0' + day;
+    // }
     // console.log( year + month + day);
     const dt = new Date;
     dt.setFullYear(dt.getFullYear() - 18);
@@ -98,6 +102,27 @@ class Birth extends React.Component {
     }else {
       this.setState({message: ""})
     }
+  }
+
+  check = (val) => {
+    console.log("check");
+    console.log(this.state.year + '/' + this.state.month + '/' + this.state.dayset);
+    const year = this.state.year;
+    const month = val;
+    const day = this.state.dayset;
+    const dt = new Date;
+    dt.setFullYear(dt.getFullYear() - 18);
+    const inputBirth = new Date(year, month - 1, day);
+    if (dt.getTime() < inputBirth.getTime()) {
+      this.setState({message: "18歳以下は登録できません"})
+    }else {
+      this.setState({message: ""})
+    }
+  }
+
+  myFunc = (e) => {
+    const monthReturnValue = this.getMonthDays(e);
+    this.check(monthReturnValue);
   }
 
   render () {
@@ -118,7 +143,11 @@ class Birth extends React.Component {
               name={"private_users[birth2]"}
               options={monthItems}
               placeholder={"月"}
-              onChange={this.getMonthDays}
+              onChange={(e) => {
+                this.myFunc(e);
+                // this.getMonthDays(e);
+                // this.check();
+              }}
             />
             <Select
               id={"daySelect"}
