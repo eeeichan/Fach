@@ -29,17 +29,6 @@ for (let i = 1; i <= 31; i++) {
 }
 
 
-// const Year = () => (
-//   <Select id={"yearSelect"} name={"private_users[birth1]"} options={yearItems} placeholder={"年"} value={this.state.value}/>
-// )
-// const Month = () => (
-//   <Select name={"private_users[birth2]"} options={monthItems} placeholder={"月"} />
-// )
-// const Day = () => (
-//   <Select name={"private_users[birth3]"} options={dayItems} placeholder={"日"}/>
-// )
-
-
 class Birth extends React.Component {
   constructor(props){
     super(props);
@@ -58,7 +47,6 @@ class Birth extends React.Component {
   }
 
   getMonthDays = (e) => {
-    console.log("getMonthDays");
     this.setState({month: e.value});
     const year = this.state.year;
     const month_tmp = e.value;
@@ -83,30 +71,10 @@ class Birth extends React.Component {
 
   checkAdult = (e) => {
     this.setState({dayset: e.value});
-    const year = String(this.state.year);
-    let month = String(this.state.month);
-    const day = String(this.state.dayset);
-    // if (month.length === 1) {
-    //   month = '0' + month;
-    // }
-    // let day = String(e.value);
-    // if (day.length === 1) {
-    //   day = '0' + day;
-    // }
-    // console.log( year + month + day);
-    const dt = new Date;
-    dt.setFullYear(dt.getFullYear() - 18);
-    const inputBirth = new Date(year, month - 1, day);
-    if (dt.getTime() < inputBirth.getTime()) {
-      this.setState({message: "18歳以下は登録できません"})
-    }else {
-      this.setState({message: ""})
-    }
+    return e.value;
   }
 
-  check = (val) => {
-    console.log("check");
-    console.log(this.state.year + '/' + this.state.month + '/' + this.state.dayset);
+  monthCheck = (val) => {
     const year = this.state.year;
     const month = val;
     const day = this.state.dayset;
@@ -119,10 +87,27 @@ class Birth extends React.Component {
       this.setState({message: ""})
     }
   }
+  dayCheck = (val) => {
+    const year = this.state.year;
+    const month = this.state.month;
+    const day = val;
+    const dt = new Date;
+    dt.setFullYear(dt.getFullYear() - 18);
+    const inputBirth = new Date(year, month - 1, day);
+    if (dt.getTime() < inputBirth.getTime()) {
+      this.setState({message: "18歳以下は登録できません"})
+    }else {
+      this.setState({message: ""})
+    }
+  }
 
-  myFunc = (e) => {
+  myMonthFunc = (e) => {
     const monthReturnValue = this.getMonthDays(e);
-    this.check(monthReturnValue);
+    this.monthCheck(monthReturnValue);
+  }
+  myDayFunc = (e) => {
+    const dayReturnValue = this.checkAdult(e);
+    this.dayCheck(dayReturnValue);
   }
 
   render () {
@@ -144,9 +129,7 @@ class Birth extends React.Component {
               options={monthItems}
               placeholder={"月"}
               onChange={(e) => {
-                this.myFunc(e);
-                // this.getMonthDays(e);
-                // this.check();
+                this.myMonthFunc(e);
               }}
             />
             <Select
@@ -154,7 +137,9 @@ class Birth extends React.Component {
               name={"private_users[birth3]"}
               options={this.state.day}
               placeholder={"日"}
-              onChange={this.checkAdult}
+              onChange={(e) => {
+                this.myDayFunc(e);
+              }}
             />
         </div>
       </React.Fragment>
