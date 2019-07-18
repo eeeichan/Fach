@@ -10,7 +10,7 @@ const adultCheckYear = () => {
   return lastYear;
 }
 const yearItems = [];
-for (let i = 1950; i <= adultCheckYear(); i++) {
+for (let i = adultCheckYear(); i >= 1950; i--) {
   yearItems.push(
     { value: i, label: i},
   )
