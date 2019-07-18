@@ -2,8 +2,15 @@ import React from "react"
 import PropTypes from "prop-types"
 import Select from 'react-select'
 
+
+const adultCheckYear = () => {
+  const dt = new Date();
+  const nowYear = dt.getFullYear();
+  const lastYear = Number(nowYear) - 18;
+  return lastYear;
+}
 const yearItems = [];
-for (let i = 1950; i <= 2000; i++) {
+for (let i = adultCheckYear(); i >= 1950; i--) {
   yearItems.push(
     { value: i, label: i},
   )
@@ -22,29 +29,15 @@ for (let i = 1; i <= 31; i++) {
 }
 
 
-const Year = () => (
-  <Select id={"yearSelect"} name={"private_users[birth1]"} options={yearItems} placeholder={"年"} value={this.state.value}/>
-)
-const Month = () => (
-  <Select name={"private_users[birth2]"} options={monthItems} placeholder={"月"} />
-)
-const Day = () => (
-  <Select name={"private_users[birth3]"} options={dayItems} placeholder={"日"}/>
-)
-
-const getMonthDays = () => {  
-  console.log("Test");
-};
-
-let textInput = React.createRef();
-
-
 class Birth extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       year: '',
-      day: dayItems
+      month: '',
+      dayset: '',
+      day: dayItems,
+      message: ''
     }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -54,6 +47,7 @@ class Birth extends React.Component {
   }
 
   getMonthDays = (e) => {
+    this.setState({month: e.value});
     const year = this.state.year;
     const month_tmp = e.value;
 
@@ -65,7 +59,6 @@ class Birth extends React.Component {
     }
 
     const lastDay = new Date(year, month + 1, 0).getDate();
-    console.log(lastDay);
     var dayItems = [];
     for (let i = 1; i <= Number(lastDay); i++) {
       dayItems.push(
@@ -73,12 +66,55 @@ class Birth extends React.Component {
       )
     }
     this.setState({day: dayItems});
+    return month_tmp;
   };
+
+  checkAdult = (e) => {
+    this.setState({dayset: e.value});
+    return e.value;
+  }
+
+  monthCheck = (val) => {
+    const year = this.state.year;
+    const month = val;
+    const day = this.state.dayset;
+    const dt = new Date;
+    dt.setFullYear(dt.getFullYear() - 18);
+    const inputBirth = new Date(year, month - 1, day);
+    if (dt.getTime() < inputBirth.getTime()) {
+      this.setState({message: "18歳以下は登録できません"})
+    }else {
+      this.setState({message: ""})
+    }
+  }
+  dayCheck = (val) => {
+    const year = this.state.year;
+    const month = this.state.month;
+    const day = val;
+    const dt = new Date;
+    dt.setFullYear(dt.getFullYear() - 18);
+    const inputBirth = new Date(year, month - 1, day);
+    if (dt.getTime() < inputBirth.getTime()) {
+      this.setState({message: "18歳以下は登録できません"})
+    }else {
+      this.setState({message: ""})
+    }
+  }
+
+  myMonthFunc = (e) => {
+    const monthReturnValue = this.getMonthDays(e);
+    this.monthCheck(monthReturnValue);
+  }
+  myDayFunc = (e) => {
+    const dayReturnValue = this.checkAdult(e);
+    this.dayCheck(dayReturnValue);
+  }
 
   render () {
     return (
       <React.Fragment>
         <div>
+          <p>{this.state.message}</p>
           <label>誕生日</label>
             <Select
               id={"yearSelect"}
@@ -92,13 +128,18 @@ class Birth extends React.Component {
               name={"private_users[birth2]"}
               options={monthItems}
               placeholder={"月"}
-              onChange={this.getMonthDays}
+              onChange={(e) => {
+                this.myMonthFunc(e);
+              }}
             />
             <Select
               id={"daySelect"}
               name={"private_users[birth3]"}
               options={this.state.day}
               placeholder={"日"}
+              onChange={(e) => {
+                this.myDayFunc(e);
+              }}
             />
         </div>
       </React.Fragment>
