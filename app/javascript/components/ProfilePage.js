@@ -25,10 +25,18 @@ class ProfilePage extends React.Component {
   handleToSettingPage = () => {
     this.props.history.push('/apps/setting')
   }
+  handleToSearchSetting = () => {
+    this.props.history.push('/apps/search/setting')
+  }
 
   render () {
     return (
       <React.Fragment>
+        <div class='apps_header'>
+          <button onClick={() => { this.handleToSearchSetting(); }}>
+            <i class="material-icons">search</i>
+          </button>
+        </div>
         <div class='row'>
           <div class='col s3'></div>
             <div class='profile_body col s6 m6'>

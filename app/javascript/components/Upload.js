@@ -25,7 +25,9 @@ class Upload extends React.Component {
     this.setState({ imageData: null })
   }
   }
-
+  handleToProfilePage = () => {
+    this.props.history.push('/apps')
+  }
 
   render () {
     const imageData = this.state.imageData
@@ -39,6 +41,11 @@ class Upload extends React.Component {
     }
     return (
       <React.Fragment>
+        <div>
+          <button onClick={() => { this.handleToProfilePage(); }}>
+            <i class="material-icons">account_circle</i>
+          </button>
+        </div>
         <div class='row'>
           <div class='col s3'></div>
           <div class='col s6'>
