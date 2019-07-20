@@ -12,10 +12,18 @@ class Edit extends React.Component {
   handleChange () {
     alert('test');
   }
+  handleToProfilePage = () => {
+    this.props.history.push('/apps')
+  }
 
   render () {
     return (
       <React.Fragment>
+        <div class='apps_header'>
+          <button onClick={() => { this.handleToProfilePage(); }}>
+            <i class="material-icons">account_circle</i>
+          </button>
+        </div>
         <div class="row">
           <div class="col s3"></div>
           <div class="col s6">

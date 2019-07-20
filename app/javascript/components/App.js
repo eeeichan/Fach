@@ -9,6 +9,8 @@ import Upload from './Upload';
 import Setting from './Setting';
 import Edit from './Edit';
 import ProfilePage from './ProfilePage';
+import SearchSetting from "./SearchSetting";
+import AppHeader from "./AppHeader";
 
 // const store = createStore(
 //   reducer, /* preloadedState, */
@@ -29,7 +31,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path='/apps' 
+          <Route exact path='/apps'
             render={props => <ProfilePage user_photo={this.user_photo} user_name={this.user_name} photo_id={this.photo_id} user_profile={this.user_profile} {...props} />}
           />
           <Route exact path='/apps/upload' 
@@ -41,6 +43,10 @@ class App extends React.Component {
             user_nickname={this.user_name} user_birth={this.user_birth} user_job={this.user_job} 
             user_personality={this.user_personality} user_profile={this.user_profile}
             {...props} />}
+          />
+          <Route exact path='/apps/search' component={SearchSetting}
+          />
+          <Route exact path='/apps/search/setting' component={SearchSetting}
           />
           {/* <Route exact component={NotFound} /> */}
         </Switch>

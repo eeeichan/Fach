@@ -9,6 +9,10 @@ body {
   background: linear-gradient(-135deg, #E4A972, #9941D8) fixed;
 }
 
+#header_none {
+  display: none;
+}
+
 //Header margin top none...
 #header .card-panel {
   height: 90px;

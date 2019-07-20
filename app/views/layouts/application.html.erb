@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <div id='header'>
+    <div id='<%= !session[:user_id] ? "header" : "header_none" %>'>
       <div class="card-panel header_nav">
         <div class='row'>
           <div class='header_log col s1 m1' >
@@ -24,7 +24,8 @@
             <% if (session[:user_id]).nil? %>
               <%= react_component("LoginMenu",{ csrf_params: request_forgery_protection_token, csrf_token: form_authenticity_token }) %>
             <% else %>
-              <%= react_component("AppHeader") %>
+              <p>ログイン中...</p>
+              <!-- <%= react_component("AppHeader") %> -->
             <% end %>
         </div>
       </div>
