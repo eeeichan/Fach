@@ -10,7 +10,7 @@ class Setting extends React.Component {
   render () {
     return (
       <React.Fragment>
-        <div>
+        <div class='apps_header'>
           <button onClick={() => { this.handleToProfilePage(); }}>
             <i class="material-icons">account_circle</i>
           </button>
